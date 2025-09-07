@@ -1,0 +1,16 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "crons": [
+    {
+      "path": "/api/email/send-weekly-digest",
+      "schedule": "0 9 * * 0"
+    },
+    {
+      "path": "/api/email/send-daily-digest", 
+      "schedule": "0 9 * * 1-5"
+    }
+  ]
+}

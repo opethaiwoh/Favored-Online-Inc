@@ -1,0 +1,162 @@
+/* CareerDashboard.css */
+
+/* Print styling */
+@media print {
+  /* Hide navigation and buttons */
+  button, 
+  nav, 
+  .quick-actions,
+  .bg-gradient-to-r {
+    display: none !important;
+  }
+  
+  /* Reset background colors and borders for better printing */
+  body, .bg-gray-50 {
+    background-color: white !important;
+  }
+  
+  /* Remove shadows and borders for cleaner print */
+  .shadow-md {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+  
+  /* Ensure proper page breaks */
+  h3, h4 {
+    page-break-after: avoid !important;
+  }
+  
+  /* Avoid breaking inside paragraphs */
+  p {
+    page-break-inside: avoid !important;
+  }
+  
+  /* Add page breaks before major sections */
+  .page-break-before {
+    page-break-before: always !important;
+  }
+  
+  /* Expand content to full width */
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Keep the colors for the content */
+  .text-blue-700, .text-blue-800, .text-blue-600 {
+    color: #1d4ed8 !important; /* Ensure blue text prints dark enough */
+  }
+  
+  /* Ensure the progress bars are visible in print */
+  .bg-blue-600, .bg-green-500, .bg-purple-500 {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Add a header and footer */
+  @page {
+    margin: 2cm;
+  }
+  
+  /* Add a title to the first page */
+  .exportable-content::before {
+    content: "Career Analysis Report";
+    display: block;
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 1cm;
+    text-align: center;
+  }
+  
+  /* Add user name to the export */
+  .exportable-content::after {
+    content: "Generated for: " attr(data-user-name);
+    display: block;
+    font-size: 10pt;
+    margin-top: 1cm;
+    text-align: center;
+  }
+}
+
+/* Special class for html2pdf export */
+.exporting .bg-blue-50 {
+  background-color: #eff6ff !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.exporting button {
+  display: none !important;
+}
+
+/* Make bullet points more pronounced */
+.text-blue-600.mr-2 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Improve readability of skill sections */
+.skills-gap-item {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #dbeafe;
+}
+
+/* Skeleton animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Specific style for skills gap headings */
+.skills-heading {
+  color: #1e40af; /* blue-800 */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Hover effects for better interactivity */
+.flex.items-start:hover {
+  background-color: #f9fafb; /* gray-50 */
+  border-radius: 0.375rem;
+}
+
+/* Fade in animation for content loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.exportable-content {
+  animation: fadeIn 0.6s ease-in-out;
+}
